@@ -1,12 +1,12 @@
 public class Car {
 
-    private int position;
+    private final Position position;
 
     public Car() {
-        this.position = 0;
+        this.position = new Position(0);
     }
 
-    public int getPosition() {
+    public Position getPosition() {
         return this.position;
     }
 }
