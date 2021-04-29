@@ -12,4 +12,8 @@ public class Position {
     public int getCurrentPos() {
         return this.currentPos;
     }
+
+    public void plusPosition(int i) {
+        this.currentPos += i;
+    }
 }

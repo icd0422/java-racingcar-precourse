@@ -19,4 +19,16 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageStartingWith(Position.NOT_POSITIVE_VALUE_ERR_MSG);
     }
+
+    @Test
+    void CAR_파리미터_값에_따른_전진_테스트() {
+        Car car1 = new Car();
+        car1.goIfRandomValueIs(3);
+
+        Car car2 = new Car();
+        car2.goIfRandomValueIs(4);
+
+        assertThat(car1.getPosition().getCurrentPos()).isZero();
+        assertThat(car2.getPosition().getCurrentPos()).isEqualTo(1);
+    }
 }
