@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class CarTest {
     @Test
     void CAR_클래스_생성_초기위치값_테스트() {
-        Car car = new Car();
+        Car car = new Car("test");
         assertThat(car.getPosition().getCurrentPos()).isZero();
     }
 
@@ -22,10 +22,10 @@ class CarTest {
 
     @Test
     void CAR_파리미터_값에_따른_전진_테스트() {
-        Car car1 = new Car();
+        Car car1 = new Car("test1");
         car1.goIfRandomValueIs(3);
 
-        Car car2 = new Car();
+        Car car2 = new Car("test2");
         car2.goIfRandomValueIs(4);
 
         assertThat(car1.getPosition().getCurrentPos()).isZero();

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -33,5 +34,27 @@ public class RacingCarCollection {
             int randomValue = random.nextInt(9);
             car.goIfRandomValueIs(randomValue);
         }
+        printCurrentStatus();
+        System.out.println();
+    }
+
+    private void printCurrentStatus() {
+        for (Car racingCar : racingCars) {
+            racingCar.print();
+        }
+    }
+
+    public List<Car> getHeadCars() {
+        int maxPositionValue = -1;
+        for (Car racingCar : racingCars) {
+            maxPositionValue = racingCar.getPosition().getMaxValueCompareTo(maxPositionValue);
+        }
+
+        List<Car> headCars = new ArrayList<>();
+        for (Car racingCar : racingCars) {
+            if (racingCar.getPosition().getCurrentPos() == maxPositionValue) headCars.add(racingCar);
+        }
+
+        return headCars;
     }
 }

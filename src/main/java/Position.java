@@ -16,4 +16,8 @@ public class Position {
     public void plusPosition(int i) {
         this.currentPos += i;
     }
+
+    public int getMaxValueCompareTo(int value) {
+        return Math.max(value, this.currentPos);
+    }
 }
