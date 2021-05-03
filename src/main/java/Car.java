@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Car {
 
     private final Position position;
@@ -24,6 +26,10 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public void insertHeadCarsIfMaxValue(List<Car> headCars, int maxPositionValue){
+        if (this.position.getCurrentPos() == maxPositionValue) headCars.add(this);
     }
 
     public void print() {

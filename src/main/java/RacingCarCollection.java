@@ -52,7 +52,7 @@ public class RacingCarCollection {
 
         List<Car> headCars = new ArrayList<>();
         for (Car racingCar : racingCars) {
-            if (racingCar.getPosition().getCurrentPos() == maxPositionValue) headCars.add(racingCar);
+            racingCar.insertHeadCarsIfMaxValue(headCars, maxPositionValue);
         }
 
         return headCars;

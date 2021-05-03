@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -32,5 +33,17 @@ class RacingCarCollectionTest {
         Throwable thrown = catchThrowable(() -> new RacingCarCollection(Collections.singletonList(new Car("test"))));
         assertThat(thrown).as(RacingCarCollection.CAR_COUNT_ERR_MSG)
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void RacingCarCollection_선두_차량_테스트() {
+        RacingCarCollection racingCarCollection
+                = new RacingCarCollection(Arrays.asList(new Car("test1"), new Car("test2"), new Car("test3")));
+        List<Car> cars = racingCarCollection.getRacingCars();
+        cars.get(0).getPosition().plusPosition(3);
+        cars.get(1).getPosition().plusPosition(1);
+        cars.get(2).getPosition().plusPosition(3);
+
+        assertThat(racingCarCollection.getHeadCars()).contains(cars.get(0), cars.get(2));
     }
 }
